@@ -54,17 +54,10 @@ function doNewJoke(data) {
     heart.classList.remove('liked')
     
     jokes.prepend(divJokeNew)
-    // console.log(divJokeNew);
-    // console.log(joke);
-    
-    
+
     
     joke.style.display = 'block'
-    // if(divJokeNew.dataset.id !== undefined) {
-    //     divJokeNew.style.display = 'block'
-    // }
-    
-    
+
     
     divJokeNew.classList.add('joke')
     phrase.textContent = data.value
@@ -173,21 +166,12 @@ function clickRedHeart(event, a) {
                 
             })
 
-            // console.log(heartToStay1.classList);
-            
-            // heartToStay1.classList.remove('liked')
             console.log(heartToStay1);
         } else {
             console.log('oops');
             touchedJokesList[0].remove()
             
         }
-        
-        // const heartToStay1 = jokeToStay1.querySelector('.heart')
-        // heartToStay1.classList.remove('liked')
-        // console.log(heartToStay1);
-
-        // heartToStay1.classList.remove('liked')
 
 
         let savedJokes = JSON.parse(localStorage.getItem('jokes'))
@@ -197,9 +181,6 @@ function clickRedHeart(event, a) {
                 return joke
             }
             
-            // if(joke.dataset.id != id) {
-            //     return joke
-            // }
         })        
 
         localStorage.setItem(`jokes`, JSON.stringify(allSavedJokes))
@@ -208,8 +189,6 @@ function clickRedHeart(event, a) {
 
         event.target.classList.toggle('liked')
 
-        // console.log(id);
-        
         const toDelete = document.querySelectorAll(`[data-id='${id}']`)
 
         const heartToStay = toDelete[0]
@@ -217,10 +196,7 @@ function clickRedHeart(event, a) {
             const jokeToDelete = toDelete[1]
             jokeToDelete.remove()
         }
-        // console.log(document.querySelectorAll(`[data-id='${id}']`));
-        
-
-        
+    
         return
     }
     
@@ -253,6 +229,7 @@ function clickRedHeart(event, a) {
 
 }
 
+
 function click() {
     setTimeout(() => {
         buttonGetJoke.click()
@@ -264,43 +241,5 @@ let oldJokesText = ''
 for(let i = allToStorage.length - 1; i >= 0; i--) {
     oldJokesText += allToStorage[i].body
 }
-// console.log(oldJokesText);
 
 favouriteList.innerHTML = oldJokesText
-
-// favOpen.addEventListener('click', () => {
-//     const sidebar = document.querySelector('.sidebar')
-//     sidebar.classList.toggle('active')
-// })
-
-function setup_for_width(x) {
-	if (x.matches) {
-		$('#exampleModal').addClass("modal left fade");
-		$('#exampleModal').removeClass("col-md-4 offset-md-1");
-		$('#test11 ').css('display','flex');
-		$('#exampleModal').css('display','none');
-		$('.favorite').css('width','480px');
-		$('.favorite').css('background','');
-		$('.favorite__btnmenu').css('display','inline-block');
-		$('.modal-content').css('padding','40px');
-		$('.favorite__favorite').css('justify-content','flex-end');
-	} else {
-		$('#exampleModal').css('display','block');
-		$('#exampleModal').addClass("col-md-4 offset-md-1");
-		$('#exampleModal').removeClass("modal left fade");
-		$('#test11 ').css('display','none');
-		$('.favorite').css('width','');
-		$('.favorite__btnmenu').css('display','none');
-		$('.favorite').css('background','#f8f8f8');
-		$('.modal-content').css('padding','');
-		$('.favorite__favorite').css('justify-content','flex-start');
-
-
-	}
-};
-
-var tabl = window.matchMedia("screen and (max-width: 767px)");
-// var phon = window.matchMedia("screen and (min-width: 576px)");
-
-setup_for_width(tabl);
-tabl.addListener(setup_for_width);
